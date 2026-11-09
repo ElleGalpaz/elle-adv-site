@@ -5,7 +5,7 @@
   document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>{h.classList.remove('open');b.setAttribute('aria-expanded',false)}));
   document.getElementById('y').textContent=new Date().getFullYear();
   if('IntersectionObserver' in window){
-    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:0,rootMargin:'0px 0px -8% 0px'});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   } else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
   document.querySelectorAll('.hero .reveal').forEach(el=>requestAnimationFrame(()=>el.classList.add('in')));
